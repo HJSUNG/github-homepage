@@ -1,6 +1,24 @@
 <script>
+import { reactive, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
+
 export default {
-  name: "AppHeader"
+  name: "AppHeader",
+  setup() {
+    const router = useRouter()
+    const state = reactive({
+
+    })
+
+    function routerPush(url) {
+      router.push(url);
+    }
+
+    return {
+      ...toRefs(state),
+      routerPush,
+    }
+  }
 }
 </script>
 
@@ -13,8 +31,8 @@ export default {
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-          <li><a href="/modernJavascript01" class="nav-link px-2 link-body-emphasis">Javascript</a></li>
+          <li><a @click="routerPush('/')" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a @click="routerPush('/modernJavascript01')" class="nav-link px-2 link-body-emphasis">Javascript</a></li>
 
         </ul>
 
