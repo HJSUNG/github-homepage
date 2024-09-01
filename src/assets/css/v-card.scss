@@ -1,0 +1,29 @@
+.v-card {
+  .v-card-item {
+    .v-card-item__content {
+      .v-card-title {
+        font-weight: bold;
+      }
+
+      .v-card-subtitle {
+        padding-left: 10px
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left : 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    li {
+      .highlight {
+        padding: 4px 4px 4px 0px;
+        &.pink {
+          background: #f8c9c9;
+        }
+      }
+    }
+  }
+}

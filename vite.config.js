@@ -4,10 +4,11 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({command})=> ({
   plugins: [
     vue(),
   ],
+  base: command == 'build' ? '/github-homepage/' : '/',
   server: {
     port: 8080
   },
@@ -16,4 +17,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
-})
+}))
